@@ -1,0 +1,20 @@
+body {
+    background-color: #011F3F;
+}
+
+h1, label, .btn {
+    color: #FEF2BF;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.btn {
+    margin-right: auto;
+}
+
+.invalid {
+    border-left: 5px solid red;
+}
+
+.valid {
+    border-left: 5px solid yellowgreen;
+}

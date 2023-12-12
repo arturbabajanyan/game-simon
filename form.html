@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="form.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Connect With Us</h1>
+    <form id="connect-form" action="">
+      <div class="form-group">
+        <label for="first-name">First Name</label>
+        <input
+          id="first-name"
+          class="form-control validate-input"
+          type="text"
+          name="first-name"
+          
+        />
+        <small class="error" aria-live="polite"></small>
+      </div>
+
+      <div class="form-group">
+        <label for="last-name">Last Name</label>
+        <input
+          id="last-name"
+          class="form-control validate-input"
+          type="text"
+          name="last-name"
+          
+        />
+        <small class="error" aria-live="polite"></small>
+      </div>
+
+      <div class="form-group">
+        <label for="nickname">Nickname</label>
+        <input
+          id="nickname"
+          class="form-control validate-input"
+          type="text"
+          name="nickname"
+          
+        />
+        <small class="error" aria-live="polite"></small>
+      </div>
+
+      <div class="form-group" id="btn-container">
+        <button class="btn btn-primary"  type="submit" formaction="simon.html">Start the game</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="form.js"></script>
+
+</body>
+</html>

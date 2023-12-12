@@ -15,8 +15,8 @@ document.addEventListener("keyup", function() {
 
 document.getElementById('container').addEventListener('click', function(e) {
     playerChoice.push(e.target.id);
-    clickEffect(e.target.id); 
-    checkAnswers(playerChoice.length-1); 
+    clickEffect(e.target.id);
+    checkAnswers(playerChoice.length-1);
 })
 
 // for (let i = 0; i < colorList.length; i++) {

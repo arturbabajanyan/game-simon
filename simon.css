@@ -1,3 +1,5 @@
+
+
 body {
     text-align: center;
     background-color: #011F3F;
@@ -24,6 +26,12 @@ body {
     width: 200px;
     border: 10px solid black;
     border-radius: 20%;
+  }
+
+  .form-container {
+    position: absolute;
+    z-index: 5;
+    opacity: 0.1;
   }
   
   .game-over {
