@@ -5,7 +5,6 @@ let  playerChoice = [];
 let inGame = false;
 // let preventInfiniteLoop = 20;
 
-
 document.addEventListener("keyup", function() {
     if (!inGame) {
         setTimeout(nextSequence, 100);
@@ -34,7 +33,12 @@ function checkAnswers(currentLevel) {
         console.log('wrong answer')
         document.body.classList.add('game-over');
         setTimeout(() => document.body.classList.remove('game-over'), 100);
-        document.getElementById("level-title").innerText = "Game Over\n\nPress Any Key To Start Again";
+        document.getElementById("level-title").innerHTML = `${angryFace} Game Over ${angryFace}`;
+        if ((level - 1) < 0) {
+            document.getElementById("level-title").innerText += `\n\nYou did ${level} correct matches\n\nPress Any Key To Start Again`;
+        } else {
+            document.getElementById("level-title").innerText += `\n\nYou did ${level-1} correct matches\n\nPress Any Key To Start Again`;
+        }
         startOver();
     }
 }
@@ -49,12 +53,14 @@ function startOver() {
 function nextSequence() {
     playerChoice = [];
     level++;
-    document.getElementById("level-title").innerHTML = "Level " + level;
+    if (level > 5) {
+        document.getElementById("level-title").innerHTML = `${nerdFace} Level ${level} ${nerdFace}`;
+    } else {
+        document.getElementById("level-title").innerHTML = `${happyFace} Level ${level} ${happyFace}`;
+    }
     randomNumber = (Math.floor(Math.random() * 4));
     computerChoice.push(colorList[randomNumber]);
     funcFadeOut(colorList[randomNumber]);
-    console.log(computerChoice);
-    console.log(playerChoice);
 }
 
 
