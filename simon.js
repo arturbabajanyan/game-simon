@@ -3,7 +3,7 @@ let level = 0;
 let computerChoice = [];
 let  playerChoice = [];
 let inGame = false;
-// let preventInfiniteLoop = 20;
+
 
 document.addEventListener("keyup", function() {
     if (!inGame) {
@@ -13,24 +13,30 @@ document.addEventListener("keyup", function() {
 });
 
 
-for (let i = 0; i < colorList.length; i++) {
-    document.querySelectorAll('.btn')[i].addEventListener('click', function(e) {
-        playerChoice.push(e.target.id);
-        clickEffect(e.target.id); 
-        checkAnswers(playerChoice.length-1);
-    })
-}
+document.getElementById('container').addEventListener('click', function(e) {
+    playerChoice.push(e.target.id);
+    clickEffect(e.target.id); 
+    checkAnswers(playerChoice.length-1); 
+})
+
+// for (let i = 0; i < colorList.length; i++) {
+//     document.querySelectorAll('.btn')[i].addEventListener('click', function(e) {
+//         playerChoice.push(e.target.id);
+//         clickEffect(e.target.id);
+//         checkAnswers(playerChoice.length-1);
+//     })
+// }
 
 function checkAnswers(currentLevel) {
-    console.log(computerChoice.length);
-    console.log(playerChoice.length);
+    // console.log(computerChoice.length);
+    // console.log(playerChoice.length);
     if (computerChoice[currentLevel] === playerChoice[currentLevel]) {
         if (computerChoice.length === playerChoice.length) {
-            console.log("perfect");
+            // console.log("perfect");
             setTimeout(nextSequence, 1000);
         }
     } else {
-        console.log('wrong answer')
+        // console.log('wrong answer');
         document.body.classList.add('game-over');
         setTimeout(() => document.body.classList.remove('game-over'), 100);
         document.getElementById("level-title").innerHTML = `${angryFace} Game Over ${angryFace}`;
