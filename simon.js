@@ -13,11 +13,27 @@ document.addEventListener("keyup", function() {
 });
 
 
-document.getElementById('container').addEventListener('click', function(e) {
-    playerChoice.push(e.target.id);
-    clickEffect(e.target.id);
-    checkAnswers(playerChoice.length-1);
-})
+// Ensure the DOM content is loaded before executing the script
+document.addEventListener('DOMContentLoaded', function() {
+    const container = document.getElementById('container');
+    if (container) {
+        container.addEventListener('click', function(e) {
+            playerChoice.push(e.target.id);
+            clickEffect(e.target.id);
+            checkAnswers(playerChoice.length - 1);
+        });
+    } else {
+        console.error("The 'container' element was not found!");
+    }
+});
+
+
+// ---------------- Code that was written before ---------------- //
+// document.getElementById('container').addEventListener('click', function(e) {
+//     playerChoice.push(e.target.id);
+//     clickEffect(e.target.id);
+//     checkAnswers(playerChoice.length-1);
+// })
 
 // for (let i = 0; i < colorList.length; i++) {
 //     document.querySelectorAll('.btn')[i].addEventListener('click', function(e) {
@@ -27,7 +43,8 @@ document.getElementById('container').addEventListener('click', function(e) {
 //     })
 // }
 
-function checkAnswers(currentLevel) {
+
+function  checkAnswers(currentLevel) {
     // console.log(computerChoice.length);
     // console.log(playerChoice.length);
     if (computerChoice[currentLevel] === playerChoice[currentLevel]) {
@@ -48,6 +65,7 @@ function checkAnswers(currentLevel) {
         startOver();
     }
 }
+
 
 function startOver() {
     level = 0;

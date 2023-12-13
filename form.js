@@ -2,6 +2,16 @@ const formEl = document.getElementById("connect-form");
 const firstName = document.getElementById("first-name");
 const lastName = document.getElementById("last-name");
 const nickname = document.getElementById("nickname");
+const playersList = [];
+
+class Player {
+    constructor(firstName, lastName, nickname) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.nickname = nickname;
+      this.score = 0;
+    }
+  }
 
 const minLength = 3;
  
@@ -27,11 +37,13 @@ nickname.addEventListener("change", () => textAreaValidation(nickname, minLength
  
 formEl.addEventListener('submit', (e) => {
     if (textAreaValidation(firstName, minLength) && textAreaValidation(lastName, minLength) && textAreaValidation(nickname, minLength)) {
+        playersList[playersList.length] = new Player(firstName.value, lastName.value, nickname.value);
+        localStorage.setItem(`player${playersList.length}`, JSON.stringify(playersList[playersList.length - 1]));
+        // e.preventDefault();
     } else {
         textAreaValidation(firstName, minLength);
         textAreaValidation(lastName, minLength);
         textAreaValidation(nickname, minLength);
-        console.log("Bad Output");
         e.preventDefault();
     }
 })
